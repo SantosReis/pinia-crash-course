@@ -11,11 +11,23 @@ function logout() {
     (state.isAuthenticated = false), (state.user = {});
   });
 }
+
+//hardcode login
+function login() {
+  authStore.$patch((state) => {
+    (state.isAuthenticated = true),
+      (state.user = {
+        name: "Marcus",
+        email: "marcus@mai.com",
+      });
+  });
+}
 </script>
 
 <template>
   <main>
-    <button @click="logout">Logout</button>
+    <button @click="logout" v-if="authStore.isAuthenticated">Logout</button>
+    <button @click="login" v-else>Logout</button>
     <HelloWorld />
   </main>
 </template>
