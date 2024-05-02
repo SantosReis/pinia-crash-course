@@ -8,14 +8,16 @@ export const useCounterStore = defineStore("counter", {
   },
   actions: {
     increment() {
-      const auth = useAuthStore();
-      if (!auth.isAuthenticated) return;
+      if (!this.isAuthenticated()) return;
       this.count++;
     },
     decrement() {
-      const auth = useAuthStore();
-      if (!auth.isAuthenticated) return;
+      if (!this.isAuthenticated()) return;
       this.count--;
+    },
+    isAuthenticated() {
+      const authStore = useAuthStore();
+      return authStore.isAuthenticated;
     },
   },
 });
