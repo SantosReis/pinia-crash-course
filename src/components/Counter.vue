@@ -1,9 +1,22 @@
 <template>
   <div>
-    <p>Count Value: {{ count }}</p>
+    <button @click="increment">+</button>
+    Count Value: {{ store.count }}
+    <button @click="decrement">-</button>
+    <br />
+    Counter moved to {{ countDigitLength }} digital length
   </div>
 </template>
 <script setup>
-const props = defineProps(["count"]);
-const count = props.count;
+import { useCounterStore } from "@/stores/counter";
+const store = useCounterStore();
+
+function increment() {
+  store.count++;
+}
+function decrement() {
+  store.count--;
+}
+
+const countDigitLength = store.count.toString().length; //not reactive, not sync with state changes
 </script>
