@@ -3,11 +3,7 @@
     <p>Count Value: {{ count }}</p>
   </div>
 </template>
-<script>
-export default {
-  props: ["count"],
-  setup(props) {
-    console.log(props.count);
-  },
-};
+<script setup>
+const props = defineProps(["count"]);
+const count = props.count;
 </script>
