@@ -4,7 +4,7 @@
     Count Value: {{ store.count }}
     <button @click="decrement">-</button>
     <br />
-    Counter moved to {{ countDigitLength }} digital length
+    Counter moved to {{ store.countDigitLength }} digital length
   </div>
 </template>
 <script setup>
@@ -19,5 +19,5 @@ function decrement() {
   store.count--;
 }
 
-const countDigitLength = computed(() => store.count.toString().length);
+// const countDigitLength = computed(() => store.count.toString().length);
 </script>
