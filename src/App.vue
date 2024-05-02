@@ -14,6 +14,7 @@ function logout() {
 
 //hardcode login
 function login() {
+  // authStore.$reset();
   authStore.$patch((state) => {
     (state.isAuthenticated = true),
       (state.user = {
