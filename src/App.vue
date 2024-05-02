@@ -4,8 +4,12 @@ import { useAuthStore } from "@/stores/auth";
 const authStore = useAuthStore();
 
 function logout() {
-  //authStore.isAuthenticated = false; //works
-  authStore.$state = { isAuthenticated: false //also works };
+  //authStore.isAuthenticated = false;
+  // authStore.$state = { isAuthenticated: false, user: {} };
+  // authStore.$patch({ isAuthenticated: false, user: {} });
+  authStore.$patch((state) => {
+    (state.isAuthenticated = false), (state.user = {});
+  });
 }
 </script>
 
