@@ -5,6 +5,9 @@ export const useAuthStore = defineStore("auth", {
     isAuthenticated: false,
     user: {},
   }),
+  getters: {
+    fullname: (state) => `${state.user.first_name} ${state.user.last_name}`,
+  },
   actions: {
     logout() {
       this.$patch((state) => {
