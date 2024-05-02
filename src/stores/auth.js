@@ -8,4 +8,16 @@ export const useAuthStore = defineStore("auth", {
       email: "marcus@mai.com",
     },
   }),
+  actions: {
+    logout() {
+      this.$patch((state) => {
+        (state.isAuthenticated = false), (state.user = {});
+      });
+    },
+    login() {
+      this.$patch((state) => {
+        this.$reset();
+      });
+    },
+  },
 });
