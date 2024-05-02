@@ -15,7 +15,7 @@ export const useAuthStore = defineStore("auth", {
       });
     },
     async login() {
-      const res = await fetch("https://reqres.in/api/users/2");
+      const res = await fetch("https://reqres.in/api/users/2?delay=2");
       const { data } = await res.json();
       // console.log(data);
       this.user = data;
