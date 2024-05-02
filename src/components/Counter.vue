@@ -9,6 +9,7 @@
 </template>
 <script setup>
 import { useCounterStore } from "@/stores/counter";
+import { computed } from "@vue/runtime-core";
 const store = useCounterStore();
 
 function increment() {
@@ -18,5 +19,5 @@ function decrement() {
   store.count--;
 }
 
-const countDigitLength = store.count.toString().length; //not reactive, not sync with state changes
+const countDigitLength = computed(() => store.count.toString().length);
 </script>
